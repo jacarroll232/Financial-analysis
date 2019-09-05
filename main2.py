@@ -1,40 +1,48 @@
-import csv
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Sep  5 08:36:39 2019
+
+@author: J. Carroll
+"""
+
 import os
+import csv
 
-budget_data = "budget_data.csv"
-months = []
-profitloss = []
-profitchange = []
-change_list = []
+py_poll = os.path.join("election_data.csv")
 
-with open(budget_data, newline="") as csvfile:
+total = 0
+with open(py_poll, newline="") as csvfile:
    csvreader = csv.reader(csvfile, delimiter=",")   
    next(csvreader)   
+   voters = []   
+   county = []   
+   candidate = []   
+   unique_candidate = []   
+   castvotes = []   
    for row in csvreader:
-       months.append(row[0])
-       profitloss.append(float(row[1]))   
-   for i in range(1, len(profitloss)):
-       profitchange.append(profitloss[i]-profitloss[i-1])       
-       changes = round(sum(profitchange)/len(profitchange), 2)       
-       max_change = max(profitchange)
-       max_date = str(months[profitchange.index(max(profitchange))+ 1])
-       min_change = min(profitchange)
-       min_date = str(months[profitchange.index(min(profitchange))+ 1])
+       voters.append(row[0])
+       county.append(row[1])
+       candidate.append(row[2])
        
-print("Financial Analysis")
-print("--------------------------------")
-print(f"Total Months: {len(months)}")
-print(f"Total: ${int(sum(profitloss))}")
-print(f"Average Change: ${(changes)}")
-print(f"Greatest increase in profits: {max_date} ${int(max_change)}")
-print(f"Greatest decrease in profits: {min_date} ${int(min_change)}")
+print("Election Results")
+print("------------------")
+print(f"Total Votes: {len(voters)}")
+print("------------------")
 
-fh = open("pybank.txt", "w")
-fh.write("Financial Analysis\n"
+for x in candidate:
+   if x not in unique_candidate:
+       unique_candidate.append(x)
+       castvotes.append(candidate.count(x))
+print(f"{(x)}: {round((candidate.count(x)/len(voters))* 100, 3)} % ({candidate.count(x)})")
+candidatedetail.append(f"{(x)}: {round((candidate.count(x)/len(voters))* 100, 3)} % ({candidate.count(x)})")
+max_winner = str(unique_candidate[castvotes.index(max(castvotes))])
+print("-----------------")
+print(f"Winner: {max_winner}")
+
+
+fh = open("pypoll.txt", "w")
+fh.write("Election Results\n"
 "-------------------\n"
-f"Total Months: {len(months)}\n"
-f"Total: ${int(sum(profitloss))}\n"
-f"Average Change: ${(changes)}\n"
-f"Greatest increase in profits: {max_date} ${int(max_change)})\n"
-f"Greatest decrease in profits: {min_date} ${int(min_change)})")
-fh.close()
+f"Total Votes: {len(voters)}\n"
+"-------------------\n"
+
