@@ -1,7 +1,7 @@
 Stock data with Python
 
 
-I create a Python script that analyzes the records of stock data to calculate each of the following:
+I created a Python script that analyzes the records of stock data to calculate each of the following:
 
 
 1. The total number of months included in the dataset
