@@ -1,7 +1,7 @@
 Financial data report generation utilizing Python
 
 
-I created a Python script that analyzes the records of stock data to calculate each of the following:
+I created a Python script that analyzes the records of financial data in order to calculate each of the following:
 
 
 1. The total number of months included in the dataset
