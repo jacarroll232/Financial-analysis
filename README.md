@@ -17,3 +17,12 @@ I created a Python script that analyzes the records of stock data to calculate e
 
 
 5. The greatest decrease in losses (date and amount) over the entire period
+
+
+Financial Analysis
+----------------------------
+Total Months: 86
+Total: $38382578
+Average  Change: $-2315.12
+
+
