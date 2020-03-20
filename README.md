@@ -1,4 +1,4 @@
-Stock data with Python
+Stock data report generation utilizing Python
 
 
 I created a Python script that analyzes the records of stock data to calculate each of the following:
